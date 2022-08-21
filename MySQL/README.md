@@ -1,7 +1,5 @@
 ## MySQL.
 
----
-
 ### 명령어.
 
 - 로그인: mysql -u username -p.
@@ -67,18 +65,18 @@
 ### 정보.
 
 - SQL(Structured Query Language)는 1) 데이터 정의 언어, 2) 데이터 조작 언어, 3) 데이터 제어 언어로 구성되어 있다.
-    1. 데이터 정의 언어(DDL, Data Definition Language)는 데이터베이스 혹은 데이터 테이블을 생성·변경·삭제할 수 있는 명령어다. (예: CREATE, ALTER, DROP)
-    2. 데이터 조작 언어(DML, Data Manipulation Language)는 데이터베이스 혹은 데이터 테이블에 실제 데이터를 삽입·변경·삭제·조회할 수 있는 명령어다. (예: INSERT, UPDATE, DELETE, SELECT)
-    3. 데이터 제어 언어(DCL, Data Control Language)는 계정 별 권한을 설정해 주거나 실행 단위를 묶어서 실행이 실패했을 경우 롤백할 수 있는 명령어다. (예: GRANT, REVOKE, COMMIT, ROLLBACK)
+    - 데이터 정의 언어(DDL, Data Definition Language)는 데이터베이스 혹은 데이터 테이블을 생성·변경·삭제할 수 있는 명령어다. (예: CREATE, ALTER, DROP)
+    - 데이터 조작 언어(DML, Data Manipulation Language)는 데이터베이스 혹은 데이터 테이블에 실제 데이터를 삽입·변경·삭제·조회할 수 있는 명령어다. (예: INSERT, UPDATE, DELETE, SELECT)
+    - 데이터 제어 언어(DCL, Data Control Language)는 계정 별 권한을 설정해 주거나 실행 단위를 묶어서 실행이 실패했을 경우 롤백할 수 있는 명령어다. (예: GRANT, REVOKE, COMMIT, ROLLBACK)
 - 사용자 정보는 ‘mysql’ 데이터베이스에서 관리하고 있다. 그러므로 사용자 정보를 조회하기 위해서는 ‘mysql’ 데이터베이스로 이동하고 조회하여야 한다.
-    1. USE databasename;
-    2. SELECT host, user FROM user;
+    - USE databasename;
+    - SELECT host, user FROM user;
 - 키(Key)는 데이터베이스에서 조건에 만족하는 튜플을 찾거나 순서대로 정렬할 때 다른 튜플들과 구별할 수 있는 유일한 기준이 되는 속성이다.
 - 조인은 두 개의 데이터 테이블을 결합하는 방법을 말한다.
-    1. Inner Join: 두 개의 데이터 테이블에서 공통 영역의 데이터를 가져오는 방법이다.
+    - Inner Join: 두 개의 데이터 테이블에서 공통 영역의 데이터를 가져오는 방법이다.
         - 공통 영역 밖의 데이터는 조회되지 않는다.
-    2. Full Outer Join: 두 개 데이터 테이블에서 공통 영역을 포함하여 다른 데이터 테이블을 모두 포함하는 방법이다.
-    3. Left Join: 두 개의 데이터 테이블에서 공통 영역을 포함하여 왼쪽 데이터 테이블의 데이터를 포함하는 방법이다.
+    - Full Outer Join: 두 개 데이터 테이블에서 공통 영역을 포함하여 다른 데이터 테이블을 모두 포함하는 방법이다.
+    - Left Join: 두 개의 데이터 테이블에서 공통 영역을 포함하여 왼쪽 데이터 테이블의 데이터를 포함하는 방법이다.
         - 왼쪽 데이터 테이블의 데이터는 반드시 조회되고 공통된 영역의 데이터를 조회할 수 있다.
-    4. Right Join: 두 개의 데이터 테이블에서 공통 영역을 포함하여 오른쪽 데이터 테이블의 데이터를 포함하는 방법이다.
+    - Right Join: 두 개의 데이터 테이블에서 공통 영역을 포함하여 오른쪽 데이터 테이블의 데이터를 포함하는 방법이다.
         - 오른쪽 데이터 테이블의 데이터는 반드시 조회되고 공통된 영역의 데이터를 조회할 수 있다.
