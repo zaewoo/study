@@ -1,8 +1,6 @@
-# STUDY.
-
-데이터 분석과 관련된 내용을 정리하여 보관하는 공간입니다.
-
 ## MySQL.
+
+---
 
 ### 명령어.
 
@@ -48,7 +46,16 @@
 - 논리 연산자(IN): SELECT column1, column2, … FROM tablename WHERE column1 IN (value1, value2, …).
 - 논리 연산자(LIKE): SELECT column1, column2, … FROM tablename WHERE column1 LIKE ‘%pattern’ | ‘pattern%’ | ‘%pattern%’ | ‘_attern’ | ‘__ttern%’.
 - 쿼리 결과 합치기: SELECT column1, column2, … FROM tablename1 UNION | UNION ALL SELECT column1, column2, … FROM tablename2.
-- 
+- JOIN(INNER): SELECT tablename1.column1, tablename1.column2, tablename2.column1, tablename2.column2 … FROM tablename1 INNER JOIN tablename2 ON tablename1.column1 = tablename2.column1 WHERE condition.
+- JOIN(LEFT): SELECT tablename1.column1, tablename1.column2, tablename2.column1, tablename2.column2, … FROM tablename1(LEFT DATA TABLE) LEFT JOIN tablename2(RIGHT DATA TABLE) ON tablename1.column1 = tablename2.column1 WHERE condition.
+- JOIN(RIGHT): SELECT tablename1.column1, tablename1.column2, tablename2.column1, tablename2.column2, … FROM tablename1(LEFT DATA TABLE) RIGHT JOIN tablename2(RIGHT DATA TABLE) ON tablename1.column1 = tablename2.column1 WHERE condition.
+- JOIN(OUTER): SELECT tablename1.column1, tablename1.column2, tablename2.column1, tablename2.column2, … FROM tablename1(LEFT DATA TABLE) FULL OUTER JOIN tablename2(RIGHT DATA TABLE) ON tablename1.column1 = tablename2.column1 WHERE condition.
+- JOIN(OUTER): SELECT column1, column2, … FROM tablename1 LEFT JOIN tablename2 ON tablename1.column1 = tablename2.column2 UNION SELECT column1, column2, … FROM tablename1 RIGHT JOIN tablename2 ON tablename1.column1 = tablename2.column2 WHERE condition.
+- JOIN(SELF): SELECT column1, column2, … FROM tablename1, tablename2, … WHERE condition.
+- 문자열 합치기: SELECT CONCAT (’string1’, ‘string2’) | SELECT CONCAT (’string1’, ‘string2’, column1 …) FROM tablename1.
+- 별칭 생성: SELECT column1 AS alias FROM tablename1 | SELECT column1, column2, … FROM tablename1 AS alias.
+- 쿼리 결과 중복 제외: SELECT DISTINCT column1, column2 FROM tablename1.
+- 쿼리 결과 제한 조회: SELECT column1, column2, … FROM tablename WHERE condition LIMIT number.
 
 ### 용어.
 
@@ -60,10 +67,18 @@
 ### 정보.
 
 - SQL(Structured Query Language)는 1) 데이터 정의 언어, 2) 데이터 조작 언어, 3) 데이터 제어 언어로 구성되어 있다.
-    - 데이터 정의 언어(DDL, Data Definition Language)는 데이터베이스 혹은 데이터 테이블을 생성·변경·삭제할 수 있는 명령어다. (예: CREATE, ALTER, DROP)
-    - 데이터 조작 언어(DML, Data Manipulation Language)는 데이터베이스 혹은 데이터 테이블에 실제 데이터를 삽입·변경·삭제·조회할 수 있는 명령어다. (예: INSERT, UPDATE, DELETE, SELECT)
-    - 데이터 제어 언어(DCL, Data Control Language)는 계정 별 권한을 설정해 주거나 실행 단위를 묶어서 실행이 실패했을 경우 롤백할 수 있는 명령어다. (예: GRANT, REVOKE, COMMIT, ROLLBACK)
+    1. 데이터 정의 언어(DDL, Data Definition Language)는 데이터베이스 혹은 데이터 테이블을 생성·변경·삭제할 수 있는 명령어다. (예: CREATE, ALTER, DROP)
+    2. 데이터 조작 언어(DML, Data Manipulation Language)는 데이터베이스 혹은 데이터 테이블에 실제 데이터를 삽입·변경·삭제·조회할 수 있는 명령어다. (예: INSERT, UPDATE, DELETE, SELECT)
+    3. 데이터 제어 언어(DCL, Data Control Language)는 계정 별 권한을 설정해 주거나 실행 단위를 묶어서 실행이 실패했을 경우 롤백할 수 있는 명령어다. (예: GRANT, REVOKE, COMMIT, ROLLBACK)
 - 사용자 정보는 ‘mysql’ 데이터베이스에서 관리하고 있다. 그러므로 사용자 정보를 조회하기 위해서는 ‘mysql’ 데이터베이스로 이동하고 조회하여야 한다.
-    - USE databasename;
-    - SELECT host, user FROM user;
+    1. USE databasename;
+    2. SELECT host, user FROM user;
 - 키(Key)는 데이터베이스에서 조건에 만족하는 튜플을 찾거나 순서대로 정렬할 때 다른 튜플들과 구별할 수 있는 유일한 기준이 되는 속성이다.
+- 조인은 두 개의 데이터 테이블을 결합하는 방법을 말한다.
+    1. Inner Join: 두 개의 데이터 테이블에서 공통 영역의 데이터를 가져오는 방법이다.
+        - 공통 영역 밖의 데이터는 조회되지 않는다.
+    2. Full Outer Join: 두 개 데이터 테이블에서 공통 영역을 포함하여 다른 데이터 테이블을 모두 포함하는 방법이다.
+    3. Left Join: 두 개의 데이터 테이블에서 공통 영역을 포함하여 왼쪽 데이터 테이블의 데이터를 포함하는 방법이다.
+        - 왼쪽 데이터 테이블의 데이터는 반드시 조회되고 공통된 영역의 데이터를 조회할 수 있다.
+    4. Right Join: 두 개의 데이터 테이블에서 공통 영역을 포함하여 오른쪽 데이터 테이블의 데이터를 포함하는 방법이다.
+        - 오른쪽 데이터 테이블의 데이터는 반드시 조회되고 공통된 영역의 데이터를 조회할 수 있다.
