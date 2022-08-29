@@ -54,6 +54,15 @@
 - 별칭 생성: SELECT column1 AS alias FROM tablename1 | SELECT column1, column2, … FROM tablename1 AS alias.
 - 쿼리 결과 중복 제외: SELECT DISTINCT column1, column2 FROM tablename1.
 - 쿼리 결과 제한 조회: SELECT column1, column2, … FROM tablename WHERE condition LIMIT number.
+- 로그인: mysql -h <endpoint> -p <port> -u <username> -p.
+- 파일 실행: source </path/filename.sql>.
+- 파일 실행: mysql -u username -p databasename < </path/filename.sql>
+- 특정 데이터베이스 백업(LOCAL): mysqldump -u username -p databasename > backup.sql.
+- 특정 데이터베이스 백업(AWS RDS): mysqldump —set-gtid-purged=OFF -h <hostname> -p <port> -u <username> -p <databasename> > <filename.sql>.
+- 모든 데이터베이스 백업: mysqldump -u username -p —all-databases > backup.sql.
+- 테이블 백업: mysqldump -u username -p databasename tablename > backup.sql.
+- 특정 테이블 스키마 백업: mysqldump -d -u username -p databasename tablename > backup.sql.
+- 모든 테이블 스키마 백업: mysqldump -d -u username -p databasename > backup.sql.
 
 ### 용어.
 
@@ -69,8 +78,8 @@
     - 데이터 조작 언어(DML, Data Manipulation Language)는 데이터베이스 혹은 데이터 테이블에 실제 데이터를 삽입·변경·삭제·조회할 수 있는 명령어다. (예: INSERT, UPDATE, DELETE, SELECT)
     - 데이터 제어 언어(DCL, Data Control Language)는 계정 별 권한을 설정해 주거나 실행 단위를 묶어서 실행이 실패했을 경우 롤백할 수 있는 명령어다. (예: GRANT, REVOKE, COMMIT, ROLLBACK)
 - 사용자 정보는 ‘mysql’ 데이터베이스에서 관리하고 있다. 그러므로 사용자 정보를 조회하기 위해서는 ‘mysql’ 데이터베이스로 이동하고 조회하여야 한다.
-    - USE databasename;
-    - SELECT host, user FROM user;
+    - USE mysql.
+    - SELECT host, user FROM user.
 - 키(Key)는 데이터베이스에서 조건에 만족하는 튜플을 찾거나 순서대로 정렬할 때 다른 튜플들과 구별할 수 있는 유일한 기준이 되는 속성이다.
 - 조인은 두 개의 데이터 테이블을 결합하는 방법을 말한다.
     - Inner Join: 두 개의 데이터 테이블에서 공통 영역의 데이터를 가져오는 방법이다.
@@ -80,3 +89,7 @@
         - 왼쪽 데이터 테이블의 데이터는 반드시 조회되고 공통된 영역의 데이터를 조회할 수 있다.
     - Right Join: 두 개의 데이터 테이블에서 공통 영역을 포함하여 오른쪽 데이터 테이블의 데이터를 포함하는 방법이다.
         - 오른쪽 데이터 테이블의 데이터는 반드시 조회되고 공통된 영역의 데이터를 조회할 수 있다.
+- AWS RDS(Amazon Relational Database Service)는 클라우드에서 간편하게 데이터베이스를 설치, 운영 및 확장할 수 있는 관리형 서비스 모음이다.
+- AWS RDS(Amazon Relational Database Service)에 접속하기 위해 데이터베이스의 엔드포인트 및 포트 정보가 필요하다.
+- SQL(Structured Query Language)은 파일 안에 여러 개의 쿼리를 작성하고 저장할 수 있다. 그리고 이 파일을 실행하면 작성되어 있는 모든 쿼리를 동시에 실행할 수 있다.
+- SQL(Structured Query Language)은 파일 안에 여러 개의 쿼리를 작성하여 데이터베이스를 백업·복원할 수 있다. 그리고 이 때에는 파일의 경로를 확인하여 실행하여야 한다.
