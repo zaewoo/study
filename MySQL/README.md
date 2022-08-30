@@ -154,10 +154,10 @@ sql = open("<filename.sql>").read()
 mycursor = mydb.cursor()
 result = mycursor.execute(sql, multi=True)
 for result_iterator in result:
-		if result_iterator.with_rows:
-			print(result_iterator.fetchall())
-		else:
-			print(result_iterator.statement)
+	if result_iterator.with_rows:
+		print(result_iterator.fetchall())
+	else:
+		print(result_iterator.statement)
 
 mydb.commit()
 mydb.close()
@@ -176,8 +176,8 @@ dataframe = pd.read_csv("filename.csv", encoding='euc-kr')
 sql = """INSERT INTO <"databasename"> VALUES (%s, %s, %s, ...)"""
 mycursor = mydb.cursor(buffered=True)
 for i, row in dataframe.iterrows():
-		mycursor.execute(sql, tuple(row))
-		mydb.commit()
+	mycursor.execute(sql, tuple(row))
+	mydb.commit()
 
 mydb.close()**
 
