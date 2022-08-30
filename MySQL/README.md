@@ -93,3 +93,92 @@
 - AWS RDS(Amazon Relational Database Service)에 접속하기 위해 데이터베이스의 엔드포인트 및 포트 정보가 필요하다.
 - SQL(Structured Query Language)은 파일 안에 여러 개의 쿼리를 작성하고 저장할 수 있다. 그리고 이 파일을 실행하면 작성되어 있는 모든 쿼리를 동시에 실행할 수 있다.
 - SQL(Structured Query Language)은 파일 안에 여러 개의 쿼리를 작성하여 데이터베이스를 백업·복원할 수 있다. 그리고 이 때에는 파일의 경로를 확인하여 실행하여야 한다.
+
+## MySQL with Python.
+
+### 코드.
+
+```
+1. 로그인. 
+mydb = mysql.connector.connect(
+    host = "<hostname>",
+    port = "<port>",
+    user = "<username>",
+    password = "<password>",
+    database = "<databasename>"
+)
+
+mydb.close()
+
+2. 쿼리.
+mydb = mysql.connector.connect(
+    host = "<hostname>",
+    port = "<port>",
+    user = "<username>",
+    password = "<password>",
+    database = "<databasename>"
+)
+
+mycursor = mydb.cursor()
+mycursor.execute(<"query">)
+
+mydb.close()
+
+3. 파일: 단일 쿼리.
+mydb = mysql.connector.connect(
+    host = "<hostname>",
+    port = "<port>",
+    user = "<username>",
+    password = "<password>",
+    database = "<databasename>"
+)
+
+sql = open("<filename.sql>").read()
+
+mycursor = mydb.cursor()
+mycursor.execute(sql)
+
+mydb.close()
+
+4. 파일: 다수 쿼리.
+mydb = mysql.connector.connect(
+    host = "<hostname>",
+    port = "<port>",
+    user = "<username>",
+    password = "<password>",
+    database = "<databasename>"
+)
+
+sql = open("<filename.sql>").read()
+
+mycursor = mydb.cursor()
+result = mycursor.execute(sql, multi=True)
+for result_iterator in result:
+		if result_iterator.with_rows:
+			print(result_iterator.fetchall())
+		else:
+			print(result_iterator.statement)
+
+mydb.commit()
+mydb.close()
+
+5. 데이터 저장.
+mydb = mysql.connector.connect(
+    host = "<hostname>",
+    port = "<port>",
+    user = "<username>",
+    password = "<password>",
+    database = "<databasename>"
+)
+
+dataframe = pd.read_csv("filename.csv", encoding='euc-kr')
+
+sql = """INSERT INTO <"databasename"> VALUES (%s, %s, %s, ...)"""
+mycursor = mydb.cursor(buffered=True)
+for i, row in dataframe.iterrows():
+		mycursor.execute(sql, tuple(row))
+		mydb.commit()
+
+mydb.close()**
+
+```
