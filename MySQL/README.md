@@ -63,6 +63,13 @@
 - 테이블 백업: mysqldump -u username -p databasename tablename > backup.sql.
 - 특정 테이블 스키마 백업: mysqldump -d -u username -p databasename tablename > backup.sql.
 - 모든 테이블 스키마 백업: mysqldump -d -u username -p databasename > backup.sql.
+- 기본키 생성: CREATE TABLE tablename(column1 datatype, column2 datatype, … CONSTRAINT constraintname PRIMARY KEY (column1, column2, …)).
+- 기본키 생성: ALTER TABLE tablename ADD PRIMARY KEY (column1, column2, …).
+- 기본키 삭제: ALTER TABLE tablename DROP PRIMARY KEY.
+- 외래키 생성: CREATE TABLE tablename(column1 datatype, column2 datatype, column3 datatype, column4 datatype, … CONSTRAINT constraintname PRIMARY KEY (column1, column2, …), CONSTRAINT constraintname FOREIGN KEY (column3, column4, …) REFERENCES REF_tablename(REF_column).
+- 외래키 생성: ALTER TABLE tablename ADD FOREIGN KEY (column) REFERENCES REF_tablename(REF_column).
+- 외래키 삭제: ALTER TABLE tablename DROP FOREIGN KEY FK_constraint.
+- 키 정보 확인: SHOW CREATE TABLE tablename
 
 ### 용어.
 
@@ -93,6 +100,8 @@
 - AWS RDS(Amazon Relational Database Service)에 접속하기 위해 데이터베이스의 엔드포인트 및 포트 정보가 필요하다.
 - SQL(Structured Query Language)은 파일 안에 여러 개의 쿼리를 작성하고 저장할 수 있다. 그리고 이 파일을 실행하면 작성되어 있는 모든 쿼리를 동시에 실행할 수 있다.
 - SQL(Structured Query Language)은 파일 안에 여러 개의 쿼리를 작성하여 데이터베이스를 백업·복원할 수 있다. 그리고 이 때에는 파일의 경로를 확인하여 실행하여야 한다.
+- 테이블에는 일반적으로 테이블의 각 행을 고유하게 식별하는 값을 가진 열 또는 열 조합이 포함되어 있습니다. 이러한 열이나 열 조합은 테이블의 PK(기본 키)라고 하며 테이블에 엔터티 무결성을 적용합니다. 기본 키 제약 조건은 데이터의 고유성을 보장하므로 자주 ID 열에 정의됩니다.
+- 외래 키(FK)는 두 테이블의 데이터 간 연결을 설정하고 강제 적용하여 외래 키 테이블에 저장될 수 있는 데이터를 제어하는 데 사용되는 열입니다. 외래 키 참조에서는 한 테이블의 기본 키 값을 가지고 있는 열을 다른 테이블의 열이 참조할 때 두 테이블 간에 연결이 생성됩니다. 이때 두 번째 테이블에 추가되는 열이 외래 키가 됩니다.
 
 ## MySQL with Python.
 
