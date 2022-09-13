@@ -191,3 +191,15 @@ for i, row in dataframe.iterrows():
 mydb.close()**
 
 ```
+
+## MySQL, Inflearn.
+- 전체 행의 개수(결측값 포함): SELECT COUNT(*) FROM tablename.
+- 전체 행의 개수(결측값 제외): SELECT COUNT(columnname) FROM tablename.
+- 전체 행의 개수(결측값 및 중복값 제외): SELECT COUNT(DISTINCT columnname) FROM tablename.
+- 전체 행의 합계: SELECT SUM(columname) FROM tablename.
+- 전체 행의 평균(결측값 제외): SELECT AVG(columname) FROM tablename.
+- 전체 행의 평균(결측값 포함): SELECT SUM(columname)/COUNT(*) FROM tablename.
+- 전체 행의 최소: SELECT MIN(columnname) FROM tablename.
+- 전체 행의 최대: SELECT MAX(columnname) FROM tablename.
+- 그룹 데이터: SELECT columnname1, columnname2, … FROM tablename GROUP BY columnname1, columnname2, … HAVING condition1, condition2, ….
+- SELECT CASE WHEN columnname = value AND|OR columnname = value, … THEN value, WHEN columnname = value AND|OR columnname = value, … THEN value ELSE value END FROM tablename.
