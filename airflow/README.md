@@ -42,6 +42,12 @@ Windows Subsystem for Linux로 윈도우에서 리눅스 실행 환경을 지원
 - tar cvf tarname objectname: 파일/디렉토리 압축
 - tar xvf objectname: 파일/디렉토리 압축 해제
 - pwd: 현재 디렉토리 경로 출력
+- sudo service docker start: 도커 실행
+- sudo docker compose up: 도커에 정의되어 있는 모든 서비스 컨테이너 생성 및 실행
+- sudo docker ps: 도커에 정의되어 있는 모든 서비스 컨테이너 목록 보기
+- sudo docker exec -it container name or container id" bash (-it는 세션이 끊어지지 않도록 하는 명령어다.)
+
+도커에 정의되어 있는 컨테이너는 일종의 가상 환경이고, 이 가상 환경에 설치된 파이썬 인터프리터의 버전을 확인하기 위해서는 'python -V'를 입력한다.
 
 ## Introduction to Docker
 리눅스 내 가상화 관련 커널을 활용하여 어플리케이션을 독립적 환경에서 실행시키는 기술이다.\
