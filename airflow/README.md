@@ -62,3 +62,27 @@ Windows Subsystem for Linux로 윈도우에서 리눅스 실행 환경을 지원
 
 URL: https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
 
+## Connection
+URL: localhost:8080\
+ID: airflow\
+PW: airflow
+
+Airflow DAGs에 있는 각각의 목록이 댁, 즉 워크플로우다.\
+Pause/Unpause: 댁을 실행시키려면 좌측 상단에 있는 토글 옵션을 클릭해서 상태를 설정할 수 있다.\
+Details: 실행 이력을 확인할 수 있고, 그 좌측에서도 실행 이력을 확인할 수 있다.\
+Auto-refresh: 우측 상단에 있고, 이는 정보를 자동으로 갱신하게 할 수 있다.\
+Graph: 해당 댁을 구성하고 있는 태스크를 보여주고, 그 연결 관계 및 상태를 알려준다.\
+Code: 이 댁을 구성하고 있는 파이썬 코드가 있다. GUI 환경에서 마우스 드래그 앤 드롭이 아니다. 댁을 만들 때는 파이썬 코드가 필요하다.
+
+## 개발 환경 플로우 이해
+초기 환경에서는 컨테이너 여섯 개가 띄워져 있고, 3개의 디렉토리를 생성하여 컨테이너와 연결시킨다.\
+따라서 3개의 디렉토리에는 파일을 추가하면 컨테이너에서도 그 파일을 인식할 수 있다.\
+우리가 만든 댁을 세 개의 디렉토리 중 하나인 DAGs Directory에 넣으면, 에어플로우 컨테이너가 이 댁을 인식하고 띄워주게 된다.\
+그러므로 우리가 만든 댁을 DAGs Directory에 배포하는 것이 개발 환경의 목적이다.
+
+1. Python Interpreter (단, Python Interpreter 설치 시 Container와 동일한 버전을 설치해야 한다.)
+2. Visual Studio Code
+3. Python Airflow Library
+4. IDE에서 댁을 개발하고, Git Push를 통해 Git Repository에 넣는다.
+5. WSL에서 Git Pull을 통해 Git Repository에 저장된 코드를 다운로드 받는다.
+6. 그리고 그 코드를 다시 컨테이너와 연결되어 있는 DAGs Directory에 옮겨준다.
