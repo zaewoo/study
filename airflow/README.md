@@ -1,4 +1,5 @@
-Airflow\
+#### Airflow
+
 데이터 추출, 가공, 저장, 그리고 분석 등 파이프라인을 구성하고 관리할 수 있는 도구다.\
 파이썬을 이용해 워크플로우를 만들고 관리할 수 있는 오픈소스 기반 워크플로우 관리 도구다.\
 파이썬으로 제작된 도구이며 이용자가 워크플로우 생성 시에도 파이썬으로 구현해야 한다.\
@@ -7,7 +8,8 @@ Airflow\
 크론론 기반의 스케줄링, 태스크가 시작되어야 하는 시간, 그리고 주기 등을 설정하는 데 쓰인다.\
 모니터링 및 실패 작업에 대한 재실행 기능이 간편하다.
 
-WSL\
+#### WSL
+
 Windows Subsystem for Linux의 약자로 윈도우에서 리눅스 실행 환경을 지원하는 윈도우의 확장 기능이다.\
 윈도우에서 리눅스 명령어를 실행할 수 있어 윈도우와 리눅스를 함께 사용하는 개발자들에게 편리하다.\
 이 확장 기능이 있기 전까지는 가상 머신(Virtual Machine, VM)을 많이 사용했다.\
@@ -22,7 +24,8 @@ Windows Subsystem for Linux의 약자로 윈도우에서 리눅스 실행 환경
 실행: Windows search - WSL - +Ubuntu\
 참고: https://learn.microsoft.com/ko-kr/windows/wsl/install
 
-Linux Command\
+#### Linux Command
+
 pwd: 현재 디렉토리 경로 출력\
 ls: 현재 디렉토리의 파일 목록 출력\
 ls -al: 현재 디렉토리의 전체 파일 목록 출력\
@@ -52,7 +55,8 @@ sudo docker compose up: 도커에 정의되어 있는 모든 서비스 컨테이
 sudo docker ps: 도커에 정의되어 있는 모든 서비스 컨테이너 목록 보기\
 sudo docker exec -it container name or container id" bash (-it는 세션이 끊어지지 않도록 하는 명령어다.)
 
-Introduction to Docker\
+#### Introduction to Docker
+
 리눅스 내 가상화 관련 커널을 활용하여 어플리케이션을 독립 환경에서 실행시키는 기술이다.\
 이는 가상화 서버(VM)와 다르게 Guest OS가 없어 경량화된 가상화 서버로 볼 수 있다.\
 가상화 서버(VM)은 Host OS 위에 HyperVisor를 설치하고 나서야 독립된 가상 환경을 구축할 수 있다.\
@@ -61,18 +65,20 @@ Introduction to Docker\
 또한, Host OS 위에 곧바로 Application을 실행시킬 수 있다.\
 우리는 이 각각의 Application을 Container, 즉 경량화된 가상화 서버라고 한다.
 
-Introduction to Docker Compose\
+#### Introduction to Docker Compose
+
 여러 개의 도커 컨테이너 설정을 한번에 관리하기 위한 도커 확장 기술이다.\
 데이터베이스를 위한 컨테이너가 여러 개 있을 수 있고, 웹 서버를 위한 컨테이너가 여러 개 있을 수 있다.\
 에어플로우를 설치하기 위한 도커 컨테이너 세팅 내용이 들어 있다.
 
-Installation of Docker\
+#### Installation of Docker
 참고: https://docs.docker.com/engine/install/ubuntu/
 
-Installation of Airflow\
+#### Installation of Airflow
 참고: https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
 
-Access the Airflow UI\
+#### Access the Airflow UI
+
 주소: localhost:8080\
 아이디: airflow\
 패스워드: airflow
@@ -84,7 +90,7 @@ Auto-refresh: 우측 상단에 있고, 이는 정보를 자동으로 갱신하�
 Graph: 해당 댁을 구성하고 있는 태스크를 보여주고, 그 연결 관계 및 상태를 알려준다.\
 Code: 이 댁을 구성하고 있는 파이썬 코드가 있다. GUI 환경에서 마우스 드래그 앤 드롭이 아니다. 댁을 만들 때는 파이썬 코드가 필요하다. 
 
-Development Environment Flow\
+#### Development Environment Flow
 초기 환경에서는 컨테이너 여섯 개가 띄워져 있고, 3개의 디렉토리(Dags, Logs, Plugins)를 생성하여 컨테이너와 연결시킨다.\
 따라서 3개의 디렉토리에는 파일을 추가하면 컨테이너에서도 그 파일을 인식할 수 있다.\
 우리가 만든 댁을 세 개의 디렉토리 중 하나인 DAGs Directory에 넣으면, 에어플로우 컨테이너가 이 댁을 인식하고 띄워주게 된다.\
