@@ -26,34 +26,34 @@ Windows Subsystem for Linux의 약자로 윈도우에서 리눅스 실행 환경
 
 #### Linux Command
 
-pwd: 현재 디렉토리 경로 출력\
-ls: 현재 디렉토리의 파일 목록 출력\
-ls -al: 현재 디렉토리의 전체 파일 목록 출력\
-cd: 디렉토리 변경\
-cd ..: 이전 디렉토리로 이동\
-cd directory name: 특정 디렉토리로 이동\
-cd /: 루트 디렉토리로 이동\
-cd: 홈 디렉토리로 이동\
-mkdir: 디렉토리 생성\
-파일 및 디렉토리를 구분하는 방법은 콘솔 창에 'ls -al'를 입력할 시,   파일은 가장 앞에 '-'가 표기되어 있고, 디렉토리는 가장 앞에 'd'가 표기되어 있다.\
-추가적으로 명령어 창에서는 색깔로도 구분할 수 있다.\
-rm: 파일 삭제\
-rm filename: 디렉토리 제외 삭제\
-rm -r directory name: 디렉토리 포함 삭제\
-cp: 파일 복사\
-cp file1 file2: 파일 복사\
-cp -r dir1 dir2: 디렉토리 포함 복사\
-mv: 파일 이동/변경\
-mv filename directory name: 디렉토리 존재 시 파일 이동\
-mv file1 file2: 디렉토리 부재 시 이름 변경\
-touch: 새로운 파일 생성\
-tar: 파일/디렉토리 압축 및 압축 해제\
-tar cvf tarname objectname: 파일/디렉토리 압축\
-tar xvf objectname: 파일/디렉토리 압축 해제\
-sudo service docker start: 도커 데몬 실행\
-sudo docker compose up: 도커에 정의되어 있는 모든 서비스 컨테이너 생성 및 실행\
-sudo docker ps: 도커에 정의되어 있는 모든 서비스 컨테이너 목록 보기\
-sudo docker exec -it container name or container id" bash (-it는 세션이 끊어지지 않도록 하는 명령어다.)
+- pwd: 현재 디렉토리 경로 출력
+- ls: 현재 디렉토리의 파일 목록 출력
+  - ls -al: 현재 디렉토리의 전체 파일 목록 출력
+- cd: 디렉토리 변경
+  - cd ..: 이전 디렉토리로 이동
+  - cd directory name: 특정 디렉토리로 이동
+  - cd /: 루트 디렉토리로 이동
+  - cd: 홈 디렉토리로 이동
+- mkdir: 디렉토리 생성
+  - 파일 및 디렉토리를 구분하는 방법은 콘솔 창에 'ls -al'를 입력할 시, 파일은 가장 앞에 '-'가 표기되어 있고, 디렉토리는 가장 앞에 'd'가 표기되어 있다.
+  - 추가적으로 명령어 창에서는 색깔로도 구분할 수 있다.
+- rm: 파일 삭제
+  - rm filename: 디렉토리 제외 삭제
+  - rm -r directory name: 디렉토리 포함 삭제
+- cp: 파일 복사
+  - cp file1 file2: 파일 복사
+  - cp -r dir1 dir2: 디렉토리 포함 복사
+- mv: 파일 이동/변경
+  - mv filename directory name: 디렉토리 존재 시 파일 이동
+  - mv file1 file2: 디렉토리 부재 시 이름 변경
+- touch: 새로운 파일 생성
+- tar: 파일/디렉토리 압축 및 압축 해제
+  - tar cvf tarname objectname: 파일/디렉토리 압축
+  - tar xvf objectname: 파일/디렉토리 압축 해제
+- sudo service docker start: 도커 데몬 실행
+- sudo docker compose up: 도커에 정의되어 있는 모든 서비스 컨테이너 생성 및 실행
+- sudo docker ps: 도커에 정의되어 있는 모든 서비스 컨테이너 목록 보기
+- sudo docker exec -it container name or container id" bash (-it는 세션이 끊어지지 않도록 하는 명령어다.)
 
 #### Introduction to Docker
 
