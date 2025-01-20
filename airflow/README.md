@@ -46,8 +46,6 @@ Windows Subsystem for Linux로 윈도우에서 리눅스 실행 환경을 지원
 ## Introduction to Docker
 리눅스 내 가상화 관련 커널을 활용하여 어플리케이션을 독립적 환경에서 실행시키는 기술이다.\
 가상화 서버(VM) 대비 Guest OS가 없어 경량화된 가상화 서버로 볼 수 있다.\
-가상화 서버(VM)은 Host OS 위에 HyperVisor를 설치하고 나서야 독립된 가상 환경을 구축할 수 있는데,\
-매 환경에 Guest OS를 설치해야 하므로 CPU, 메모리 등을 불필요하게 할애해야 한다.\
-반면에 Host OS 위에 HyperVisor 대신 Docker를 설치하면,\
-Guest OS를 설치하지 않아도 되므로 불필요한 CPU, 메모리 낭비를 줄일 수 있고, Host OS 위에 곧바로 Application을 실행시킬 수 있다.\
+가상화 서버(VM)은 Host OS 위에 HyperVisor를 설치하고 나서야 독립된 가상 환경을 구축할 수 있는데, 매 환경에 Guest OS를 설치해야 하므로 CPU, 메모리 등을 불필요하게 할애해야 한다.\
+반면에 Host OS 위에 HyperVisor 대신 Docker를 설치하면, Guest OS를 설치하지 않아도 되므로 불필요한 CPU, 메모리 낭비를 줄일 수 있고, Host OS 위에 곧바로 Application을 실행시킬 수 있다.\
 우리는 이 각각의 Application을 Container, 즉 경량화된 가상화 서버라고 한다.
