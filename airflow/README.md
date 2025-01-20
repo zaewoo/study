@@ -96,10 +96,10 @@ Code: 이 댁을 구성하고 있는 파이썬 코드가 있다. GUI 환경에�
 우리가 만든 댁을 세 개의 디렉토리 중 하나인 DAGs Directory에 넣으면, 에어플로우 컨테이너가 이 댁을 인식하고 띄워주게 된다.\
 그러므로 우리가 만든 댁을 DAGs Directory에 배포하는 것이 개발 환경의 목적이다.
 
-Python Interpreter (단, Python Interpreter 설치 시 Container와 동일한 버전을 설치해야 한다.)\
-Visual Studio Code\
-Python Airflow Library
+- Python Interpreter (단, Python Interpreter 설치 시 Container와 동일한 버전을 설치해야 한다.)
+- Visual Studio Code
+- Python Airflow Library
 
-IDE에서 댁을 개발하고, Git Push를 통해 Git Repository에 개발된 댁을 넣는다.\
-WSL에서 Git Pull을 통해 Git Repository에 개발된 댁을 다운로드 받는다.\
-그리고 그 코드를 다시 컨테이너와 연결되어 있는 DAGs Directory에 옮겨준다.
+- IDE에서 댁을 개발하고, Git Push를 통해 Git Repository에 개발된 댁을 넣는다.
+- WSL에서 Git Pull을 통해 Git Repository에 개발된 댁을 다운로드 받는다.
+- 그리고 그 코드를 다시 컨테이너와 연결되어 있는 DAGs Directory에 옮겨준다.
